@@ -2,9 +2,15 @@ package com.company;
 
 public class Stack {
     private Node head;
+    private int size;
 
     public Stack() {
         this.head = null;
+        this.size = 0;
+    }
+
+    public int getSize() {
+        return this.size;
     }
 
     public boolean isEmpty() {
@@ -19,6 +25,7 @@ public class Stack {
         Node newNode = new Node(value);
         newNode.setNext(this.head);
         this.head = newNode;
+        this.size++;
     }
 
     public void pop() {
@@ -26,6 +33,7 @@ public class Stack {
             throw new IndexOutOfBoundsException("The stack is already empty.");
         }
         this.head = this.head.getNext();
+        this.size--;
     }
 
     public int peek() {
